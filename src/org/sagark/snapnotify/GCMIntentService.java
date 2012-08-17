@@ -61,10 +61,13 @@ public class GCMIntentService extends GCMBaseIntentService{
 	
 	@SuppressWarnings("deprecation")
 	public void onMessage(Context context, Intent intent){
-	    NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+		String ns = Context.NOTIFICATION_SERVICE;
+	    NotificationManager notificationManager = (NotificationManager) getSystemService(ns);
 	    Notification notification = new Notification(R.drawable.ic_launcher, "A new notification", System.currentTimeMillis());
 	    // Hide the notification after its selected
 	    notification.flags |= Notification.FLAG_AUTO_CANCEL;
+	    notification.defaults |= Notification.DEFAULT_SOUND;
+	    notification.defaults |= Notification.DEFAULT_VIBRATE;
 
 	    //Intent intent2 = new Intent(this, NotificationReceiver.class);
 	    PendingIntent activity = PendingIntent.getActivity(this, 0, intent, 0);
