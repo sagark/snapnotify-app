@@ -37,12 +37,12 @@ public class GCMIntentService extends GCMBaseIntentService{
 		Log.e("snap", regId);
 		String urlParam = regId;
 		//adapted from http://www.wikihow.com/Execute-HTTP-POST-Requests-in-Android
-		String requesturl = "http://192.168.1.7:1337/posthere";
+		String requesturl = "http://192.168.1.7:1337/register";
 		HttpClient client = new DefaultHttpClient();
 		HttpPost post = new HttpPost(requesturl);
 		List<NameValuePair> pairs = new ArrayList<NameValuePair>();
-		pairs.add(new BasicNameValuePair("key1", "value1"));
-		pairs.add(new BasicNameValuePair("key2", "value2"));
+		pairs.add(new BasicNameValuePair(urlParam, ""));
+		//pairs.add(new BasicNameValuePair("key2", "value2"));
 		try {
 			post.setEntity(new UrlEncodedFormEntity(pairs));
 			HttpResponse response = client.execute(post);
