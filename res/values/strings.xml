@@ -5,5 +5,8 @@
     <string name="menu_settings">Settings</string>
     <string name="title_activity_main">SnapNotify</string>
     <string name="setup_guide">To use SnapNotify, you must setup your own notification server (it\'s super easy though). See http://sagark.org for a guide.</string>
-
+	<string name="server_hint">Server Location</string>
+	<string name="id_hint">Sender ID</string>
+	<string name="button_text">Set Prefs</string>
+	<string name="button2_text">Reregister</string>
 </resources>

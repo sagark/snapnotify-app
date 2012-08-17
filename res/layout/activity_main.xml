@@ -21,5 +21,47 @@
         android:layout_marginTop="36dp"
         android:text="@string/setup_guide"
         android:textAppearance="?android:attr/textAppearanceMedium" />
+    
+        <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/button2"
+        android:layout_marginLeft="95dp"
+        android:layout_toRightOf="@+id/button2"
+        android:text="@string/button_text" />
+    
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/editText2"
+        android:layout_marginLeft="174dp"
+        android:layout_marginTop="81dp"
+        android:text="@string/button2_text" />
 
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="58dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/server_hint" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText1"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/id_hint" >
+
+        <!--  <requestFocus /> -->
+    </EditText>
 </RelativeLayout>
