@@ -1,13 +1,28 @@
 package org.sagark.snapnotify;
 
 import android.os.Bundle;
+import com.google.android.gcm.GCMRegistrar;
 import android.app.Activity;
+import android.util.Log;
 import android.view.Menu;
 
 public class MainActivity extends Activity {
 
-    @Override
+	//need to make this user-customizable 
+    private static final String SENDER_ID = "586572666469";
+
+	@Override
     public void onCreate(Bundle savedInstanceState) {
+    	GCMRegistrar.checkDevice(this);
+    	GCMRegistrar.checkManifest(this);
+    	final String regId = GCMRegistrar.getRegistrationId(this);
+    	if (regId.equals("")) {
+    	  GCMRegistrar.register(this, SENDER_ID);
+    	} else {
+    	  Log.v("snap", "Already registered");
+    	}
+    	
+    	
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
