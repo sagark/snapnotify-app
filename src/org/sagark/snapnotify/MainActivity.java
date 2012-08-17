@@ -9,7 +9,8 @@ import android.view.Menu;
 public class MainActivity extends Activity {
 
 	//need to make this user-customizable 
-    private static final String SENDER_ID = "586572666469";
+    protected static String SENDER_ID = "586572666469";
+    protected static String SnapNotifyServer = "http://192.168.1.7:1337/register";
 
 	@Override
     public void onCreate(Bundle savedInstanceState) {

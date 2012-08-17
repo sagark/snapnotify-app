@@ -32,7 +32,7 @@ public class GCMIntentService extends GCMBaseIntentService{
 		Log.e("snap", regId);
 		String urlParam = regId;
 		//adapted from http://www.wikihow.com/Execute-HTTP-POST-Requests-in-Android
-		String requesturl = "http://192.168.1.7:1337/register";
+		String requesturl = MainActivity.SnapNotifyServer;
 		HttpClient client = new DefaultHttpClient();
 		HttpPost post = new HttpPost(requesturl);
 		List<NameValuePair> pairs = new ArrayList<NameValuePair>();
