@@ -3,17 +3,19 @@ package org.sagark.snapnotify;
 import android.os.Bundle;
 import com.google.android.gcm.GCMRegistrar;
 import android.app.Activity;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
 	//need to make this user-customizable 
-    protected static String SENDER_ID = "586572666469";
-    protected static String SnapNotifyServer = "http://192.168.1.7:1337/register";
+    protected static String SENDER_ID;
+    protected static String SnapNotifyServer;
     protected static String storedRegId; //for use by reregister button
     public static final String PREFS_NAME = "SnapPrefsFile";
 
@@ -30,7 +32,7 @@ public class MainActivity extends Activity {
         //load preferences from file
 		SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
 		SENDER_ID = settings.getString("SENDER_ID", "0000");
-		SnapNotifyServer = settings.getString("SnapNotifyServer", "http://localhost");
+		SnapNotifyServer = settings.getString("SnapNotifyServer", "http://");
 		
     	//register to GCM Server
 		registerGCM();
@@ -72,13 +74,23 @@ public class MainActivity extends Activity {
 	}
 	
 	protected void registerGCM(){
-    	GCMRegistrar.checkDevice(this);
-    	GCMRegistrar.checkManifest(this);
-    	storedRegId = GCMRegistrar.getRegistrationId(this);
-    	if (storedRegId.equals("")) {
-    	  GCMRegistrar.register(this, SENDER_ID);
-    	} else {
-    	  Log.v("snap", "Already registered");
-    	}
+		if (!SENDER_ID.equals("0000") && !SnapNotifyServer.equals("http://")) {
+	    	GCMRegistrar.checkDevice(this);
+	    	GCMRegistrar.checkManifest(this);
+	    	storedRegId = GCMRegistrar.getRegistrationId(this);
+	    	if (storedRegId.equals("")) {
+	    	  GCMRegistrar.register(this, SENDER_ID);
+	    	} else {
+	    	  Log.v("snap", "Already registered");
+	    	}
+		} else {
+			//toast here instructing user to enter prefs
+			Context context = getApplicationContext();
+			CharSequence text = "Enter your server address / sender id, then press set prefs and reregister.";
+			int duration = Toast.LENGTH_SHORT;
+
+			Toast toast = Toast.makeText(context, text, duration);
+			toast.show();
+		}
 	}
 }
