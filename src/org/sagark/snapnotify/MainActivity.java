@@ -78,11 +78,11 @@ public class MainActivity extends Activity {
 	    	GCMRegistrar.checkDevice(this);
 	    	GCMRegistrar.checkManifest(this);
 	    	storedRegId = GCMRegistrar.getRegistrationId(this);
-	    	if (storedRegId.equals("")) {
+	    	//if (storedRegId.equals("")) {
 	    	  GCMRegistrar.register(this, SENDER_ID);
-	    	} else {
-	    	  Log.v("snap", "Already registered");
-	    	}
+	    	//} else {
+	    	 // Log.v("snap", "Already registered");
+	    	//}
 		} else {
 			//toast here instructing user to enter prefs
 			Context context = getApplicationContext();

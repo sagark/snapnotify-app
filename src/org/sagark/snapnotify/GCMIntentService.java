@@ -69,14 +69,15 @@ public class GCMIntentService extends GCMBaseIntentService{
 	    notification.defaults |= Notification.DEFAULT_SOUND;
 	    notification.defaults |= Notification.DEFAULT_VIBRATE;
 
-	    //Intent intent2 = new Intent(this, NotificationReceiver.class);
 	    PendingIntent activity = PendingIntent.getActivity(this, 0, intent, 0);
 	    
-	    notification.setLatestEventInfo(this, "This is the title", "This is the text " + notificationcount, activity);
+	    String title = intent.getExtras().getString("title");
+	    String content = intent.getExtras().getString("content");
+	    
+	    notification.setLatestEventInfo(this, title, content, activity);
 	    notification.number += 1;
 	    notificationcount += 1;
 	    notificationManager.notify(notificationcount, notification);
-	    //notificationcount += 1; //our notifications will never have the same id
 	}
 	public void onError(Context context, String errorId){
 		//stub
