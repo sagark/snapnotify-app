@@ -25,7 +25,7 @@ public class GCMIntentService extends GCMBaseIntentService{
 	private static int notificationcount = 0;
 	
 	public GCMIntentService(){
-		super("lol");
+		super("snapnotify");
 	}
 	public void onRegistered(Context context, String regId){
 		//stub
@@ -38,7 +38,7 @@ public class GCMIntentService extends GCMBaseIntentService{
 		HttpPost post = new HttpPost(requesturl);
 		List<NameValuePair> pairs = new ArrayList<NameValuePair>();
 		pairs.add(new BasicNameValuePair(urlParam, ""));
-		//pairs.add(new BasicNameValuePair("key2", "value2"));
+		
 		try {
 			post.setEntity(new UrlEncodedFormEntity(pairs));
 			client.execute(post);

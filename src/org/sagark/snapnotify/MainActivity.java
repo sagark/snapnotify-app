@@ -79,7 +79,7 @@ public class MainActivity extends Activity {
 	    	GCMRegistrar.checkManifest(this);
 	    	storedRegId = GCMRegistrar.getRegistrationId(this);
 	    	//if (storedRegId.equals("")) {
-	    	  GCMRegistrar.register(this, SENDER_ID);
+	    	GCMRegistrar.register(this, SENDER_ID);
 	    	//} else {
 	    	 // Log.v("snap", "Already registered");
 	    	//}
