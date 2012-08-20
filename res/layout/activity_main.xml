@@ -47,26 +47,32 @@
 
         <!-- <requestFocus /> -->
     </EditText>
-
-    <Button
-        android:id="@+id/button2"
+    
+    <RelativeLayout
+        android:id="@+id/mainLayoutButtons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/editText2"
-        android:layout_marginLeft="50dp"
-        android:text="@string/button2_text" />
+        android:layout_below="@+id/editText2" >
+        
+    	<Button
+        	android:id="@+id/button2"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:layout_alignParentLeft="true"
+        
+        	android:layout_marginLeft="50dp"
+        	android:text="@string/button2_text" />
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button2"
-        android:layout_alignBottom="@+id/button2"
-        android:layout_marginLeft="30dp"
-        android:layout_toRightOf="@+id/button2"
-        android:text="@string/button_text" />
-
+    	<Button
+        	android:id="@+id/button1"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:layout_marginLeft="30dp"
+        	android:layout_toRightOf="@+id/button2"
+        	android:text="@string/button_text" />
+	</RelativeLayout>
+    	
+    	
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
@@ -105,10 +111,6 @@
         	ads:loadAdOnCreate="true"
         	ads:testDevices="TEST_EMULATOR, B9D922235D386CE545E9E05304FC63A0" >
     	</com.google.ads.AdView>
-        
     </RelativeLayout>
     
-    
-
-
 </RelativeLayout>
