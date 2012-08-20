@@ -9,8 +9,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 import com.google.android.apps.analytics.GoogleAnalyticsTracker;
+import com.google.ads.*;
 
 public class MainActivity extends Activity {
 
@@ -20,6 +22,7 @@ public class MainActivity extends Activity {
     protected static String storedRegId; //for use by reregister button
     public static final String PREFS_NAME = "SnapPrefsFile";
     GoogleAnalyticsTracker tracker;
+    private AdView adView;
 
     Button mButton;
     Button mButton2;
@@ -29,11 +32,23 @@ public class MainActivity extends Activity {
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        
+        // analytics tracking code
         tracker = GoogleAnalyticsTracker.getInstance();
         tracker.startNewSession("UA-34204437-1", this);
         tracker.trackPageView("/app_home");
+        
+        
         setContentView(R.layout.activity_main);
-		
+        
+        //old adView code
+        /*
+        adView = new AdView(this, AdSize.BANNER, "a150316039f0f20");
+		RelativeLayout layout = (RelativeLayout)findViewById(R.id.mainLayout);
+		layout.addView(adView);
+		adView.loadAd(new AdRequest());
+        */
+        
         //load preferences from file
 		SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
 		SENDER_ID = settings.getString("SENDER_ID", "0000");
@@ -103,5 +118,8 @@ public class MainActivity extends Activity {
 	protected void onDestroy() {
 		super.onDestroy();
 		tracker.stopSession();
+		if (adView != null){
+			adView.destroy();
+		}
 	}
 }
