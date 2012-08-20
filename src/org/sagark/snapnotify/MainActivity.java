@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import com.google.android.apps.analytics.GoogleAnalyticsTracker;
 
 public class MainActivity extends Activity {
 
@@ -18,6 +19,7 @@ public class MainActivity extends Activity {
     protected static String SnapNotifyServer;
     protected static String storedRegId; //for use by reregister button
     public static final String PREFS_NAME = "SnapPrefsFile";
+    GoogleAnalyticsTracker tracker;
 
     Button mButton;
     Button mButton2;
@@ -27,6 +29,9 @@ public class MainActivity extends Activity {
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        tracker = GoogleAnalyticsTracker.getInstance();
+        tracker.startNewSession("UA-34204437-1", this);
+        tracker.trackPageView("/app_home");
         setContentView(R.layout.activity_main);
 		
         //load preferences from file
@@ -92,5 +97,11 @@ public class MainActivity extends Activity {
 			Toast toast = Toast.makeText(context, text, duration);
 			toast.show();
 		}
+	}
+	
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		tracker.stopSession();
 	}
 }
