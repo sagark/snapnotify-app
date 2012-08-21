@@ -3,9 +3,14 @@ package org.sagark.snapnotify;
 import android.os.Bundle;
 import com.google.android.gcm.GCMRegistrar;
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -37,6 +42,7 @@ public class MainActivity extends Activity {
         tracker = GoogleAnalyticsTracker.getInstance();
         tracker.startNewSession("UA-34204437-1", this);
         tracker.trackPageView("/app_home");
+        tracker.dispatch();
         
         
         setContentView(R.layout.activity_main);
@@ -122,4 +128,26 @@ public class MainActivity extends Activity {
 			adView.destroy();
 		}
 	}
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+	    MenuInflater inflater = getMenuInflater();
+	    inflater.inflate(R.menu.main_menu, menu);
+	    return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    // Handle item selection
+	    switch (item.getItemId()) {
+	        case R.id.about_snapnotify:
+	            Intent i = new Intent();
+	            ComponentName n = new ComponentName("org.sagark.snapnotify","org.sagark.snapnotify.AboutActivity");
+	            i.setComponent(n);
+	            startActivity(i);
+	            return true;
+	        default:
+	            return super.onOptionsItemSelected(item);
+	    }
+	}
+	
 }
