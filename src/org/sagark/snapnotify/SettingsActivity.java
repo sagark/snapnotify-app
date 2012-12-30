@@ -33,13 +33,13 @@ public class SettingsActivity extends Activity {
     }
     
     @Override
-    protected void onStop(){
+    protected void onStop() {
     	super.onStop();
     	registerGCM();
     }
     
     
-	protected void registerGCM(){
+	protected void registerGCM() {
 		SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
 		sender_id = sharedPref.getString("sender_id", "0000");
 		server_location = sharedPref.getString("server_address", "http://");

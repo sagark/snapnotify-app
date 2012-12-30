@@ -21,17 +21,16 @@ import android.content.Intent;
 import android.util.Log;
 
 
-public class GCMIntentService extends GCMBaseIntentService{
+public class GCMIntentService extends GCMBaseIntentService {
 	private static int notificationcount = 0;
 	
-	public GCMIntentService(){
+	public GCMIntentService() {
 		super("snapnotify");
 	}
-	public void onRegistered(Context context, String regId){
+	
+	public void onRegistered(Context context, String regId) {
 		Log.e("snap", regId);
 		SettingsActivity.storedRegId = regId;
-		//String urlParam = regId;
-		//adapted from http://www.wikihow.com/Execute-HTTP-POST-Requests-in-Android
 		String requesturl = SettingsActivity.server_location;
 		HttpClient client = new DefaultHttpClient();
 		HttpPost post = new HttpPost(requesturl);
@@ -50,18 +49,19 @@ public class GCMIntentService extends GCMBaseIntentService{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
 	}
-	public void onUnregistered(Context context, String regId){
+	
+	public void onUnregistered(Context context, String regId) {
 		//stub
 	}
 	
 	@SuppressWarnings("deprecation")
-	public void onMessage(Context context, Intent intent){
+	public void onMessage(Context context, Intent intent) {
 		String ns = Context.NOTIFICATION_SERVICE;
 	    NotificationManager notificationManager = (NotificationManager) getSystemService(ns);
 	    Notification notification = new Notification(R.drawable.ic_launcher, "Received SnapNotify Message", System.currentTimeMillis());
-	    // Hide the notification after its selected
+	    
+	    // Hide the notification after it's selected
 	    notification.flags |= Notification.FLAG_AUTO_CANCEL;
 	    notification.defaults |= Notification.DEFAULT_SOUND;
 	    notification.defaults |= Notification.DEFAULT_VIBRATE;
@@ -76,11 +76,14 @@ public class GCMIntentService extends GCMBaseIntentService{
 	    notificationcount += 1;
 	    notificationManager.notify(notificationcount, notification);
 	}
-	public void onError(Context context, String errorId){
+	
+	public void onError(Context context, String errorId) {
 		//stub
 	}
-	public boolean onRecoverableError(Context context, String errorId){
+	
+	public boolean onRecoverableError(Context context, String errorId) {
 		//stub
 		return true;
 	}
+	
 }

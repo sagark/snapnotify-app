@@ -8,10 +8,11 @@ import android.preference.PreferenceFragment;
 public class SettingsFragment extends PreferenceFragment {
 	@SuppressLint("NewApi")
 	@Override
-	public void onCreate(Bundle savedInstanceState){
+	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
 		// Load the preferences from and XML resource
 		addPreferencesFromResource(R.xml.preferences);
 	}
+	
 }
