@@ -30,13 +30,14 @@ public class GCMIntentService extends GCMBaseIntentService{
 	public void onRegistered(Context context, String regId){
 		Log.e("snap", regId);
 		SettingsActivity.storedRegId = regId;
-		String urlParam = regId;
+		//String urlParam = regId;
 		//adapted from http://www.wikihow.com/Execute-HTTP-POST-Requests-in-Android
 		String requesturl = SettingsActivity.server_location;
 		HttpClient client = new DefaultHttpClient();
 		HttpPost post = new HttpPost(requesturl);
 		List<NameValuePair> pairs = new ArrayList<NameValuePair>();
-		pairs.add(new BasicNameValuePair(urlParam, ""));
+		pairs.add(new BasicNameValuePair("regId", regId));
+		pairs.add(new BasicNameValuePair("devicename", SettingsActivity.device_name));
 		
 		try {
 			post.setEntity(new UrlEncodedFormEntity(pairs));
@@ -59,7 +60,7 @@ public class GCMIntentService extends GCMBaseIntentService{
 	public void onMessage(Context context, Intent intent){
 		String ns = Context.NOTIFICATION_SERVICE;
 	    NotificationManager notificationManager = (NotificationManager) getSystemService(ns);
-	    Notification notification = new Notification(R.drawable.ic_launcher, "A new notification", System.currentTimeMillis());
+	    Notification notification = new Notification(R.drawable.ic_launcher, "Received SnapNotify Message", System.currentTimeMillis());
 	    // Hide the notification after its selected
 	    notification.flags |= Notification.FLAG_AUTO_CANCEL;
 	    notification.defaults |= Notification.DEFAULT_SOUND;
