@@ -5,12 +5,14 @@
     <string name="menu_settings">Settings</string>
     <string name="title_activity_main">SnapNotify</string>
     <string name="setup_guide">To use SnapNotify, you must setup your own notification server (it\'s super easy though). See http://sagark.org/snapnotify/ for a guide.</string>
-    <string name="server_hint">Server Location</string>
-    <string name="id_hint">Sender ID</string>
+    <string name="server_hint">http://</string>
+    <string name="id_hint">0000</string>
     <string name="button_text">Set Prefs</string>
     <string name="button2_text">Reregister</string>
     <string name="about_label">About</string>
     <string name="title_activity_about">AboutActivity</string>
     <string name="about_text">SnapNotify was developed by Sagar Karandikar. \n\nFind out more at http://sagark.org/snapnotify/  \n\nFound bugs? Send an email to apps@sagark.org \n\nThis is an early release. Although everything should work, there is no guarantee of functionality and no warranty or support is implied.</string>
+    <string name="prefs_server_location">Server Location</string>
+    <string name="prefs_sender_id">Sender ID (from GCM API key setup)</string>
 
 </resources>

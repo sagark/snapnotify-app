@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.sagark.snapnotify"
     android:versionCode="1"
@@ -32,7 +33,7 @@
             android:name="com.google.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
         <activity
-            android:name=".MainActivity"
+            android:name="org.sagark.snapnotify.MainActivity"
             android:label="@string/title_activity_main" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -52,11 +53,18 @@
             </intent-filter>
         </receiver>
 
-        <service android:name=".GCMIntentService" />
+        <service android:name="org.sagark.snapnotify.GCMIntentService" />
 
         <activity
-            android:name=".AboutActivity"
+            android:name="org.sagark.snapnotify.AboutActivity"
             android:label="@string/title_activity_about" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.sagark.snapnotify.MainActivity" />
+        </activity>
+        <activity
+            android:name="org.sagark.snapnotify.SettingsActivity"
+            android:label="@string/title_activity_settings" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="org.sagark.snapnotify.MainActivity" />

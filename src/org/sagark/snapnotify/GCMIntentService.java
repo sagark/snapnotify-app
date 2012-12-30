@@ -30,10 +30,10 @@ public class GCMIntentService extends GCMBaseIntentService{
 	public void onRegistered(Context context, String regId){
 		//stub
 		Log.e("snap", regId);
-		MainActivity.storedRegId = regId;
+		SettingsActivity.storedRegId = regId;
 		String urlParam = regId;
 		//adapted from http://www.wikihow.com/Execute-HTTP-POST-Requests-in-Android
-		String requesturl = MainActivity.SnapNotifyServer;
+		String requesturl = SettingsActivity.server_location;
 		HttpClient client = new DefaultHttpClient();
 		HttpPost post = new HttpPost(requesturl);
 		List<NameValuePair> pairs = new ArrayList<NameValuePair>();

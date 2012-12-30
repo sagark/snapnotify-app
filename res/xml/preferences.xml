@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    <EditTextPreference
+        android:key="server_address"
+        android:title="@string/prefs_server_location"
+        android:defaultValue="@string/server_hint" />
+    <EditTextPreference 
+        android:key="sender_id"
+        android:title="@string/prefs_sender_id"
+        android:defaultValue="@string/id_hint" />
+</PreferenceScreen>

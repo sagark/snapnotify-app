@@ -2,5 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/about_snapnotify"
           android:title="@string/about_label"
-          android:showAsAction="ifRoom"/>
+          android:showAsAction="ifRoom">
+    </item>
+    <item android:id="@xml/preferences" android:title="@string/menu_settings" android:showAsAction="ifRoom"></item>
 </menu>
