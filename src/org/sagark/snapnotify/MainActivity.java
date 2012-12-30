@@ -17,7 +17,7 @@ import android.widget.EditText;
 
 import android.widget.Toast;
 import com.google.android.apps.analytics.GoogleAnalyticsTracker;
-import com.google.ads.*;
+//import com.google.ads.*;
 
 public class MainActivity extends Activity {
 
@@ -27,7 +27,7 @@ public class MainActivity extends Activity {
     protected static String storedRegId; //for use by reregister button
     public static final String PREFS_NAME = "SnapPrefsFile";
     GoogleAnalyticsTracker tracker;
-    private AdView adView;
+    //private AdView adView;
 
     Button mButton;
     Button mButton2;
@@ -47,13 +47,6 @@ public class MainActivity extends Activity {
         
         setContentView(R.layout.activity_main);
         
-        //old adView code
-        /*
-        adView = new AdView(this, AdSize.BANNER, "a150316039f0f20");
-		RelativeLayout layout = (RelativeLayout)findViewById(R.id.mainLayout);
-		layout.addView(adView);
-		adView.loadAd(new AdRequest());
-        */
         
         //load preferences from file
 		SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
@@ -90,7 +83,6 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onStop(){
 		super.onStop();
-		
 		SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
 		SharedPreferences.Editor editor = settings.edit();
 		editor.putString("SnapNotifyServer", SnapNotifyServer);
@@ -104,11 +96,7 @@ public class MainActivity extends Activity {
 	    	GCMRegistrar.checkDevice(this);
 	    	GCMRegistrar.checkManifest(this);
 	    	storedRegId = GCMRegistrar.getRegistrationId(this);
-	    	//if (storedRegId.equals("")) {
 	    	GCMRegistrar.register(this, SENDER_ID);
-	    	//} else {
-	    	 // Log.v("snap", "Already registered");
-	    	//}
 		} else {
 			//toast here instructing user to enter prefs
 			Context context = getApplicationContext();
@@ -124,10 +112,8 @@ public class MainActivity extends Activity {
 	protected void onDestroy() {
 		super.onDestroy();
 		tracker.stopSession();
-		if (adView != null){
-			adView.destroy();
-		}
 	}
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 	    MenuInflater inflater = getMenuInflater();

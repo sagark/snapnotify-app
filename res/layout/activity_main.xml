@@ -98,19 +98,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true" >
-        
-        <com.google.ads.AdView
-        	android:id="@+id/adView"
-        	android:layout_width="wrap_content"
-        	android:layout_height="wrap_content"
-        	android:layout_alignParentLeft="true"
-        	android:layout_below="@+id/button2"
-        	android:layout_marginTop="27dp"
-        	ads:adSize="BANNER"
-        	ads:adUnitId="a150316039f0f20"
-        	ads:loadAdOnCreate="true"
-        	ads:testDevices="TEST_EMULATOR, B9D922235D386CE545E9E05304FC63A0" >
-    	</com.google.ads.AdView>
     </RelativeLayout>
     
 </RelativeLayout>
