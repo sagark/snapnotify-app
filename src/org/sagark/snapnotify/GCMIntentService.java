@@ -28,7 +28,6 @@ public class GCMIntentService extends GCMBaseIntentService{
 		super("snapnotify");
 	}
 	public void onRegistered(Context context, String regId){
-		//stub
 		Log.e("snap", regId);
 		SettingsActivity.storedRegId = regId;
 		String urlParam = regId;
@@ -44,13 +43,10 @@ public class GCMIntentService extends GCMBaseIntentService{
 			client.execute(post);
 			Log.e("snap", "complete");
 		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (ClientProtocolException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

@@ -18,6 +18,7 @@ public class SettingsActivity extends Activity {
     protected static String storedRegId; //for use by reregister button
     protected static String sender_id;
     protected static String server_location;
+    protected static String device_name;
 
 	
     @SuppressLint("NewApi")
@@ -43,6 +44,7 @@ public class SettingsActivity extends Activity {
 		SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
 		sender_id = sharedPref.getString("sender_id", "0000");
 		server_location = sharedPref.getString("server_address", "http://");
+		device_name = sharedPref.getString("device_name", "Device1");
 		
 		if (!sender_id.equals("0000") && !server_location.equals("http://")) {
 	    	GCMRegistrar.checkDevice(this);

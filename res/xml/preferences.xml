@@ -8,4 +8,8 @@
         android:key="sender_id"
         android:title="@string/prefs_sender_id"
         android:defaultValue="@string/id_hint" />
+    <EditTextPreference
+        android:key="device_name"
+        android:title="@string/prefs_device_name"
+        android:defaultValue="@string/default_device_name" />
 </PreferenceScreen>

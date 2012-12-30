@@ -14,5 +14,7 @@
     <string name="about_text">SnapNotify was developed by Sagar Karandikar. \n\nFind out more at http://sagark.org/snapnotify/  \n\nFound bugs? Send an email to apps@sagark.org \n\nThis is an early release. Although everything should work, there is no guarantee of functionality and no warranty or support is implied.</string>
     <string name="prefs_server_location">Server Location</string>
     <string name="prefs_sender_id">Sender ID (from GCM API key setup)</string>
+    <string name="prefs_device_name">Device Name (for identification in SnapSend)</string>
+    <string name="default_device_name">Device1</string>
 
 </resources>

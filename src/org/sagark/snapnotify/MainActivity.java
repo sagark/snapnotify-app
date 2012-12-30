@@ -10,7 +10,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import com.google.android.apps.analytics.GoogleAnalyticsTracker;
-//import com.google.ads.*;
 
 public class MainActivity extends Activity {
 
@@ -26,18 +25,9 @@ public class MainActivity extends Activity {
         tracker.trackPageView("/app_home");
         tracker.dispatch();
         
-        
         setContentView(R.layout.activity_main);
 	}
 
-	@Override
-	protected void onStop(){
-		super.onStop();
-
-		
-	}
-
-	
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
